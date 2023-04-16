@@ -13,8 +13,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/u-one/go-el-controller/echonetlite"
-	"github.com/u-one/go-el-controller/wisun"
+	"github.com/matsuu/go-el-controller/echonetlite"
+	"github.com/matsuu/go-el-controller/wisun"
 )
 
 var version string
