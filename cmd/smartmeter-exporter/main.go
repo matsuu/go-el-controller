@@ -67,11 +67,12 @@ func run() error {
 	initCtx, cancel := context.WithTimeout(ctx, 300*time.Second)
 
 	err = node.Start(initCtx, *bRouteID, *bRoutePW)
+	// err != nilでもコネクションを張ってるのでこの位置でClose
+	defer node.Close()
 	if err != nil {
 		cancel()
 		return fmt.Errorf("failed to start: %w", err)
 	}
-	defer node.Close()
 
 	ctx, cancel = context.WithCancel(ctx)
 	defer cancel()
